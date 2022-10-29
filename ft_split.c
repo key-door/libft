@@ -3,90 +3,90 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: keys <keys@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kyoda <kyoda@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 20:50:34 by keys              #+#    #+#             */
-/*   Updated: 2022/10/25 14:29:23 by keys             ###   ########.fr       */
+/*   Created: 2022/08/21 00:48:28 by keys              #+#    #+#             */
+/*   Updated: 2022/08/30 07:00:31 by kyoda            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "libft.h"
+#include "libft.h"
 
-// size_t count_word(char *tmp, char c)
-// {
-// 	size_t count;
+static size_t	array_len(char const *s, char c);
+static size_t	array_num(char const *s, char c);
+static char		**all_free(char **dst);
 
-// 	count = 0;
-// 	while(*tmp)
-// 	{
-// 		while(*tmp == c)
-// 			tmp++;
-// 		if(!tmp)
-// 			break;
-// 		count++;
-// 		while(*tmp != c)
-// 			tmp++;
-// 	}
-// 	return count;
-// }
+char	**ft_split(char const *s, char c)
+{
+	char	**dst;
+	int		index;
 
-// void ft_null_c(char *tmp, char c)
-// {
-// 	while(*tmp)
-// 	{
-// 		if(*tmp == c)
-// 			*tmp = '\0';
-// 		tmp++;
-// 	}
-// }
-// char **ft_split(char const *s, char c)
-// {
-// 	char *tmp;
-// 	char **split;
-// 	size_t count;
-// 	size_t i;
+	index = 0;
+	if (!s)
+		return (NULL);
+	dst = (char **)malloc(sizeof(char *) * (array_num(s, c) + 1));
+	if (dst == NULL)
+		return (NULL);
+	while (*s != '\0')
+	{
+		while (*s == c)
+			s++;
+		if (*s == '\0')
+			break ;
+		dst[index++] = ft_substr(s, 0, array_len(s, c));
+		if (dst[index - 1] == NULL)
+			return (all_free(dst));
+		while (*s != c && *s)
+			s++;
+	}
+	dst[index] = NULL;
+	return (dst);
+}
 
-// 	i = 0;
-// 	printf("%d",__LINE__);
-// 	if(!s)
-// 		return NULL;
-// 	tmp =(char *)s;
-// 	while(*tmp == c)
-// 		tmp++;
-// 	printf("%d",__LINE__);
-// 	count = count_word(tmp, c);
-// 	split = (char **)malloc(count + 1);
-// 	printf("%d",__LINE__);
-// 	if(!split)
-// 		return NULL;
-// 	ft_null_c(tmp, c);
-// 	printf("%d",__LINE__);
-// 	while(count--)
-// 	{
-// 		split[i] = strdup(tmp);
-// 		if(!split[i])
-// 			return NULL;
-// 	printf("%d",__LINE__);
-// 		while(*tmp != '\0' )
-// 			tmp ++;
-// 		while(*tmp == '\0')
-// 			tmp++;
-// 		i++;
-// 	}
-// 	split[i] = NULL;
-// 	return split;
-// }
+static char	**all_free(char **dst)
+{
+	int	i;
 
-// int main()
-// {
-// 	printf("%d",__LINE__);
-// 	char *test = "   123  fv 312   frg";
-// 	char **tmp;
+	i = 0;
+	while (dst[i] != NULL)
+	{
+		free(dst[i]);
+		i++;
+	}
+	free(dst);
+	return (NULL);
+}
 
-// 	tmp = ft_split(test, ' ');
-// 	printf("%d",__LINE__);
-// 	for(int i = 0; i < 5; i++)
-// 		printf("%s",tmp[i]);
-// 	printf("%d",__LINE__);
-// 	return 0;
-// }
+static size_t	array_num(char const *s, char c)
+{
+	size_t	num;
+	int		flag;
+
+	flag = 0;
+	num = 0;
+	while (*s)
+	{
+		if (*s != c && flag == 0)
+		{
+			flag = 1;
+			num++;
+		}
+		else if (*s == c)
+			flag = 0;
+		s++;
+	}
+	return (num);
+}
+
+static size_t	array_len(char const *s, char c)
+{
+	size_t	len;
+
+	len = 0;
+	while (*s != '\0' && *s != c)
+	{
+		len++;
+		s++;
+	}
+	return (len);
+}

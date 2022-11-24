@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoda <kyoda@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: ken <ken@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 15:16:34 by keys              #+#    #+#             */
-/*   Updated: 2022/08/24 21:17:10 by kyoda            ###   ########.fr       */
+/*   Updated: 2022/11/24 15:04:17 by ken              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	void	*tmp;
+	int *c;
+	void *tmp;
 
-	tmp = dst;
 	if (dst == src || n == 0)
 		return (dst);
+	tmp =dst;
+	c = (int *)src;
 	while (n-- != 0)
-	{
-		*(unsigned char *)dst = *(unsigned char *)src;
-		dst++;
-		src++;
-	}
+		ft_memset(dst++, *c++,1);
 	return (tmp);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoda <kyoda@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: keys <keys@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 20:03:05 by kyoda             #+#    #+#             */
-/*   Updated: 2022/09/03 06:58:52 by kyoda            ###   ########.fr       */
+/*   Updated: 2022/11/27 05:25:05 by keys             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strdup(const char *s1)
 	if (p == NULL)
 		return (NULL);
 	else
-		ft_memcpy(p, s1, len);
-	p[len] = '\0';
+		ft_memmove(p, s1, len);
+	ft_memset(p + len, '\0', 1);
 	return (p);
 }

@@ -3,16 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoda <kyoda@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: keys <keys@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 13:22:39 by keys              #+#    #+#             */
-/*   Updated: 2022/08/30 08:03:10 by kyoda            ###   ########.fr       */
+/*   Updated: 2022/11/27 08:52:26 by keys             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static void	itoa_ans(int n, char *str);
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+
+	if (n < 0)
+		str = ft_strdup("-");
+	else
+		str = ft_strdup("");
+	if (!str)
+		return (NULL);
+
+}
 
 char	*ft_itoa(int n)
 {

@@ -1,17 +1,21 @@
+#include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-int main()
+
+int	main(void)
 {
-	char *tmp;
-	char *a;
-	tmp = malloc(3);
-	a = tmp;
-	*a++ = '1';
-	*a++ = '2';
-	*a = '\0';
-	size_t len;
-	len = strlen(tmp);
-	printf("%s",tmp+len-1);
-	return 0;
+	int	i;
+	int	len;
+
+	len = 0;
+	i = -2147483648;
+	while (1)
+	{
+		i = i / 10;
+		len++;
+		if (!i)
+			break ;
+	}
+	printf("%d\n", len);
 }

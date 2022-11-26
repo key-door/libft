@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoda <kyoda@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: keys <keys@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:42:55 by kyoda             #+#    #+#             */
-/*   Updated: 2022/08/24 20:52:02 by kyoda            ###   ########.fr       */
+/*   Updated: 2022/11/26 14:54:30 by keys             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,21 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*tmp;
-	char	ch;
+	unsigned char	ch;
+	size_t			len;
 
-	ch = (char)c;
-	tmp = NULL;
-	if (ch == '\0')
+	ch = (unsigned char)c;
+	if (!ch)
 		return ((char *)(s + ft_strlen(s)));
-	while (*s != '\0')
+	len = ft_strlen(s);
+	if (len)
 	{
-		if (*s == ch)
-			tmp = (char *)s;
-		s++;
+		while (len--)
+		{
+			if (*(s + len) == ch)
+				return ((char *)(s + len));
+			s++;
+		}
 	}
-	return (tmp);
+	return (NULL);
 }

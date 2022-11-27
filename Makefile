@@ -6,7 +6,7 @@
 #    By: keys <keys@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/30 11:18:56 by kyoda             #+#    #+#              #
-#    Updated: 2022/11/28 00:43:18 by keys             ###   ########.fr        #
+#    Updated: 2022/11/28 00:45:51 by keys             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,7 @@ bonus :
 	@$(MAKE) --no-print-directory all WITH_BONUS=1
 
 clean :
-	$(RM) $(OBJS_BONUS) $(OBJS)
+	$(RM) -r $(OBJDIR)
 
 fclean : clean
 	$(RM) $(NAME)

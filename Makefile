@@ -6,7 +6,7 @@
 #    By: keys <keys@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/30 11:18:56 by kyoda             #+#    #+#              #
-#    Updated: 2022/11/27 13:12:52 by keys             ###   ########.fr        #
+#    Updated: 2022/11/28 00:43:18 by keys             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ CFLAGS		= -Wall -Wextra -Werror
 # CFLAGS		= -Wall -Wextra -Werror $(INCLUDE) -g -fsanitize=address -fsanitize=undefined -fsanitize=integer
 
 SRCS		=	ft_atoi.c 		\
+				ft_atol.c		\
 				ft_calloc.c 	\
 				ft_isalpha.c 	\
 				ft_isdigit.c 	\

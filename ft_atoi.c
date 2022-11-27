@@ -6,7 +6,7 @@
 /*   By: keys <keys@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:09:39 by kyoda             #+#    #+#             */
-/*   Updated: 2022/11/27 05:30:03 by keys             ###   ########.fr       */
+/*   Updated: 2022/11/28 00:42:56 by keys             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,10 @@ static long	ft_atoi_overflow(long flag, long result, const char *str)
 	return (1);
 }
 
-static int	ft_isspace(const char *str)
+int	ft_isspace(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r')
-		i++;
-	return (i);
+	return (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+		|| c == ' ');
 }
 
 int	ft_atoi(const char *str)
@@ -47,7 +42,8 @@ int	ft_atoi(const char *str)
 
 	i = 0;
 	flag = 1;
-	i = ft_isspace(str);
+	while (ft_isspace((int)str[i]))
+		i++;
 	if (str[i] == '-')
 		flag = -1;
 	if (flag == -1 || str[i] == '+')

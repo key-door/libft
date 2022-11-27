@@ -6,7 +6,7 @@
 /*   By: keys <keys@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:13:13 by kyoda             #+#    #+#             */
-/*   Updated: 2022/11/26 14:43:55 by keys             ###   ########.fr       */
+/*   Updated: 2022/11/27 12:39:48 by keys             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	if (dst_len >= dstsize)
 		return (dstsize + src_len);
 	if (src_len < dstsize - dst_len)
-		ft_memcpy(dst + dst_len, src, src_len + 1);
+		ft_memmove(dst + dst_len, src, src_len + 1);
 	else
 	{
-		ft_memcpy(dst + dst_len, src, dstsize - dst_len - 1);
+		ft_memmove(dst + dst_len, src, dstsize - dst_len - 1);
 		ft_memset(dst + dstsize, '\0', 1);
 	}
 	return (dst_len + src_len);

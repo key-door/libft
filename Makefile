@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kyoda <kyoda@student.42tokyo.jp>           +#+  +:+       +#+         #
+#    By: keys <keys@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/30 11:18:56 by kyoda             #+#    #+#              #
-#    Updated: 2022/09/04 01:02:30 by kyoda            ###   ########.fr        #
+#    Updated: 2022/11/27 12:24:17 by keys             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,11 @@ ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
 OBJS		= $(SRC:.c=.o)
 OBJS_BONUS	= $(SRC_BONUS:.c=.o)
 CC 			= gcc
+# CC 			= clang
 INCLUDE		= -I ./
 # INCLUDE		= -I libft.h
 CFLAGS		= -Wall -Wextra -Werror $(INCLUDE)
+# CFLAGS		= -Wall -Wextra -Werror $(INCLUDE) -g -fsanitize=address -fsanitize=undefined -fsanitize=integer
 
 ifdef WITH_BONUS
 OBJS += $(OBJS_BONUS)

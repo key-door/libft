@@ -3,17 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: keys <keys@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ubuntu2204 <ubuntu2204@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 16:04:00 by keys              #+#    #+#             */
-/*   Updated: 2022/11/28 00:42:14 by keys             ###   ########.fr       */
+/*   Updated: 2023/07/29 21:46:55 by ubuntu2204       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static long long	ft_overlong(const char *str, unsigned long long result,
-		int base, long long flag)
+static bool	ft_is_over(unsigned long long result, unsigned long long cutoff,
+		unsigned long long last, const char *str)
+{
+	if (result == cutoff)
+	{
+		if ((((unsigned long long)(*str - '0')) <= last) && (str[1]
+				&& (ft_isdigit(str[1]) != 0)))
+			return (true);
+	}
+	if (result < cutoff)
+		return (true);
+	return (false);
+}
+
+static long long	ft_overlong(const char *str,
+								unsigned long long result,
+								int base,
+								long long flag)
 {
 	unsigned long long	cutoff;
 	unsigned long long	last;
@@ -24,14 +40,11 @@ static long long	ft_overlong(const char *str, unsigned long long result,
 		return (flag);
 	else if (result <= cutoff)
 	{
-		if (((result == cutoff) && (((unsigned long long)(*str - '0')) <= last))
-			|| (result < cutoff))
+		if (ft_is_over(result, cutoff, last, str))
 		{
 			result *= (unsigned long long)base;
 			result += (unsigned long long)(*str - '0');
 			str++;
-			if (((result < cutoff)) && ft_isdigit(str[1]) == 0)
-				return (flag);
 		}
 		else
 			return (flag);

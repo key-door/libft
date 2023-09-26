@@ -8,7 +8,7 @@ atoi ,atol ,bzero ,calloc ,isalnum ,isalpha ,isascii ,isdigit ,isprint ,isspace 
 
 
 
-#### ft_substr
+## ft_substr
 **Prototype:**  
 `char *ft_substr(char const *s, unsigned int start, size_t len);`
 
@@ -23,7 +23,7 @@ The substring. NULL if the allocation fails.
 **Description:**  
 Allocates (with malloc(3)) and returns a substring from the string ’s’. The substring begins at index ’start’ and is of maximum size ’len’.
 
-#### ft_strjoin
+## ft_strjoin
 **Prototype:**  
 `char *ft_strjoin(char const *s1, char const *s2);`
 
@@ -37,7 +37,7 @@ The new string. NULL if the allocation fails.
 **Description:**  
 Allocates (with malloc(3)) and returns a new string, which is the result of the concatenation of ’s1’ and ’s2’.
 
-#### ft_strtrim
+## ft_strtrim
 **Prototype:**  
 `char *ft_strtrim(char const *s1, char const *set);`
 
@@ -51,7 +51,7 @@ The trimmed string. NULL if the allocation fails.
 **Description:**  
 Allocates (with malloc(3)) and returns a copy of ’s1’ with the characters specified in ’set’ removed from the beginning and the end of the string.
 
-#### ft_split
+## ft_split
 **Prototype:**  
 `char **ft_split(char const *s, char c);`
 
@@ -65,7 +65,7 @@ The array of new strings resulting from the split. NULL if the allocation fails.
 **Description:**  
 Allocates (with malloc(3)) and returns an array of strings obtained by splitting ’s’ using the character ’c’ as a delimiter. The array must end with a NULL pointer.
 
-#### ft_itoa
+## ft_itoa
 **Prototype:**  
 `char *ft_itoa(int n);`
 
@@ -78,7 +78,7 @@ The string representing the integer. NULL if the allocation fails.
 **Description:**  
 Allocates (with malloc(3)) and returns a string representing the integer received as an argument. Negative numbers must be handled.
 
-#### ft_strmapi
+## ft_strmapi
 **Prototype:**  
 `char *ft_strmapi(char const *s, char (*f)(unsigned int, char));`
 
@@ -92,7 +92,7 @@ The string created from the successive applications of ’f’. Returns NULL if 
 **Description:**  
 Applies the function ’f’ to each character of the string ’s’, and passing its index as first argument to create a new string (with malloc(3)) resulting from successive applications of ’f’.
 
-#### ft_striteri
+## ft_striteri
 **Prototype:**  
 `void ft_striteri(char *s, void (*f)(unsigned int, char*));`
 
@@ -106,7 +106,7 @@ None
 **Description:**  
 Applies the function ’f’ on each character of the string passed as argument, passing its index as first argument. Each character is passed by address to ’f’ to be modified if necessary.
 
-#### ft_putchar_fd
+## ft_putchar_fd
 **Prototype:**  
 `void ft_putchar_fd(char c, int fd);`
 
@@ -120,7 +120,7 @@ None
 **Description:**  
 Outputs the character ’c’ to the given file descriptor.
 
-#### ft_putstr_fd
+## ft_putstr_fd
 **Prototype:**  
 `void ft_putstr_fd(char *s, int fd);`
 
@@ -134,7 +134,7 @@ None
 **Description:**  
 Outputs the string ’s’ to the given file descriptor.
 
-#### ft_putendl_fd
+## ft_putendl_fd
 **Prototype:**  
 `void ft_putendl_fd(char *s, int fd);`
 
@@ -148,7 +148,7 @@ None
 **Description:**  
 Outputs the string ’s’ to the given file descriptor followed by a newline.
 
-#### ft_putnbr_fd
+## ft_putnbr_fd
 **Prototype:**  
 `void ft_putnbr_fd(int n, int fd);`
 
@@ -162,7 +162,7 @@ None
 **Description:**  
 Outputs the integer ’n’ to the given file descriptor.
 
-#### ft_lstnew
+## ft_lstnew
 **Prototype:**  
 `t_list *ft_lstnew(void *content);`
 
@@ -175,7 +175,7 @@ The new node.
 **Description:**  
 Allocates (with malloc(3)) and returns a new node. The member variable ’content’ is initialized with the value of the parameter ’content’. The variable ’next’ is initialized to NULL.
 
-#### ft_lstadd_front
+## ft_lstadd_front
 **Prototype:**  
 `void ft_lstadd_front(t_list **lst, t_list *new);`
 
@@ -189,7 +189,7 @@ None
 **Description:**  
 Adds the node ’new’ at the beginning of the list.
 
-#### ft_lstsize
+## ft_lstsize
 **Prototype:**  
 `int ft_lstsize(t_list *lst);`
 
@@ -202,7 +202,7 @@ The length of the list.
 **Description:**  
 Counts the number of nodes in a list.
 
-#### ft_lstlast
+## ft_lstlast
 **Prototype:**  
 `t_list *ft_lstlast(t_list *lst);`
 
@@ -215,7 +215,7 @@ Last node of the list.
 **Description:**  
 Returns the last node of the list.
 
-#### ft_lstadd_back
+## ft_lstadd_back
 **Prototype:**  
 `void ft_lstadd_back(t_list **lst, t_list *new);`
 
@@ -229,7 +229,7 @@ None
 **Description:**  
 Adds the node ’new’ at the end of the list.
 
-#### ft_lstdelone
+## ft_lstdelone
 **Prototype:**  
 `void ft_lstdelone(t_list *lst, void (*del)(void*));`
 
@@ -243,7 +243,7 @@ None
 **Description:**  
 Takes as a parameter a node and frees the memory of the node’s content using the function ’del’ given as a parameter and free the node. The memory of ’next’ must not be freed.
 
-#### ft_lstclear
+## ft_lstclear
 **Prototype:**  
 `void ft_lstclear(t_list **lst, void (*del)(void*));`
 
@@ -257,7 +257,7 @@ None
 **Description:**  
 Deletes and frees the given node and every successor of that node, using the function ’del’ and free(3). Finally, the pointer to the list must be set to NULL.
 
-#### ft_lstiter
+## ft_lstiter
 **Prototype:**  
 `void ft_lstiter(t_list *lst, void (*f)(void *));`
 
@@ -271,7 +271,7 @@ None
 **Description:**  
 Iterates the list ’lst’ and applies the function ’f’ on the content of each node.
 
-#### ft_lstmap
+## ft_lstmap
 **Prototype:**  
 `t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));`
 
